@@ -33,7 +33,7 @@ public class Program {
         ContractService cs = new ContractService(new PaypalService());
 
         cs.processContract(c, vezes);
-        for (Installment e : c.getInstallments()) {
+        for (String e : c.getInstallments()) {
             System.out.println(e);
             
         }

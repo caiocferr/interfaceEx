@@ -11,7 +11,7 @@ public class Contract {
     private LocalDate date;
     private Double totalValue;
 
-    private List<Installment> installments = new ArrayList<>();
+    private List<String> installments = new ArrayList<>();
 
 
 
@@ -64,7 +64,7 @@ public class Contract {
 
 
 
-    public List<Installment> getInstallments() {
+    public List<String> getInstallments() {
         return installments;
     }
 

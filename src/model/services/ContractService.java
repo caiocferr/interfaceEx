@@ -12,9 +12,12 @@ public class ContractService {
            for(int i=1;i<=months;i++){
            Installment inst = new Installment();
            inst.setDueDate(Contract.getDate().plusMonths(i));
+           Double x= (Contract.getTotalValue()/months)+
+           paymentService.interest(Contract.getTotalValue()/months, i);
            inst.setAmount ((Contract.getTotalValue()/months)+
-           paymentService.interest(Contract.getTotalValue()/months, i)+paymentService.paymentFee(Contract.getTotalValue()/months));
-           Contract.getInstallments().add(inst);
+           paymentService.interest(Contract.getTotalValue()/months, i)+paymentService.paymentFee(x));
+           String instt = inst.toString();
+           Contract.getInstallments().add(instt);
         }
     }
 
