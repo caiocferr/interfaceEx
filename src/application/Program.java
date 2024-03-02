@@ -6,7 +6,9 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.entities.Contract;
-import model.services.Paypal;
+import model.entities.Installment;
+import model.services.ContractService;
+import model.services.PaypalService;
 
 public class Program {
 
@@ -26,15 +28,14 @@ public class Program {
         double value = sc.nextDouble();
         System.out.println("Número de parcelas: ");
         int vezes = sc.nextInt();
+          
+        Contract c= new Contract(number, start, value);
+        ContractService cs = new ContractService(new PaypalService());
 
-        Contract c = new Contract(number, start, value, vezes, new Paypal());
-
-        System.out.println("Parcelas: ");
-
-        for (int i = 1; i <= vezes; i++) {
-            String parsed = c.getDate().plusMonths(i).format(fmt);
-            System.out.print(parsed + "  -  ");
-            System.out.println(String.format("%.2f", c.getPaymentService().installments(value, i, vezes)));
+        cs.processContract(c, vezes);
+        for (Installment e : c.getInstallments()) {
+            System.out.println(e);
+            
         }
 
         sc.close();

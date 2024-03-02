@@ -2,5 +2,6 @@ package model.services;
 
 public interface PaymentService {
 
-    public double installments(double value,int months,int vezes);
+    public Double paymentFee(Double amount);
+    public Double interest (Double amout, Integer months);
 }

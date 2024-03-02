@@ -1,45 +1,43 @@
 package model.entities;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-import model.services.PaymentService;
+
 
 public class Contract {
-    private int number;
+    private Integer number;
     private LocalDate date;
-    private Double value;
-    private int installments;
+    private Double totalValue;
 
-    private PaymentService paymentService;
+    private List<Installment> installments = new ArrayList<>();
 
-    
+
+
     public Contract() {
     }
 
 
-    
 
-
-    public Contract(int number, LocalDate date, Double value, int installments, PaymentService paymentService) {
+    public Contract(Integer number, LocalDate date, Double totalValue) {
         this.number = number;
         this.date = date;
-        this.value = value;
-        this.installments = installments;
-        this.paymentService = paymentService;
+        this.totalValue = totalValue;
     }
 
 
 
-
-
-    public int getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
 
-    public void setNumber(int number) {
+
+    public void setNumber(Integer number) {
         this.number = number;
     }
+
 
 
     public LocalDate getDate() {
@@ -47,46 +45,30 @@ public class Contract {
     }
 
 
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
 
 
-    public Double getValue() {
-        return value;
+
+    public Double getTotalValue() {
+        return totalValue;
     }
 
 
-    public void setValue(Double value) {
-        this.value = value;
+
+    public void setTotalValue(Double totalValue) {
+        this.totalValue = totalValue;
     }
 
 
-    public int getInstallments() {
+
+    public List<Installment> getInstallments() {
         return installments;
     }
 
-
-    public void setInstallments(int installments) {
-        this.installments = installments;
-    }
-
-
-
-
-
-    public PaymentService getPaymentService() {
-        return paymentService;
-    }
-
-
-
-
-
-    public void setPaymentService(PaymentService paymentService) {
-        this.paymentService = paymentService;
-    }
+   
 
     
-
 }
