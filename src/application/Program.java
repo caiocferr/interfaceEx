@@ -32,8 +32,11 @@ public class Program {
         Contract c= new Contract(number, start, value);
         ContractService cs = new ContractService(new PaypalService());
 
+
+        System.out.println("PARCELAS: ");
+
         cs.processContract(c, vezes);
-        for (String e : c.getInstallments()) {
+        for (Installment e : c.getInstallments()) {
             System.out.println(e);
             
         }

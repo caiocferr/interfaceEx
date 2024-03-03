@@ -16,8 +16,7 @@ public class ContractService {
            paymentService.interest(Contract.getTotalValue()/months, i);
            inst.setAmount ((Contract.getTotalValue()/months)+
            paymentService.interest(Contract.getTotalValue()/months, i)+paymentService.paymentFee(x));
-           String instt = inst.toString();
-           Contract.getInstallments().add(instt);
+           Contract.getInstallments().add(inst);
         }
     }
 
